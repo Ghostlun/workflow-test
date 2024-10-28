@@ -1,0 +1,22 @@
+name: Test Slack Webhook
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  test_slack_webhook:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check if Secret is Loaded
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: |
+          if [ -z "$SLACK_WEBHOOK_URL" ]; then
+            echo "SLACK_WEBHOOK_URL is not set"
+            exit 1
+          else
+            echo "SLACK_WEBHOOK_URL is set"
+          fi
