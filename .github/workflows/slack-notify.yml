@@ -3,7 +3,7 @@ name: Slack Notification on Commit
 on:
   push:
     branches:
-      - main  # Adjust if you want notifications for other branches
+      - master  # Adjust if you want notifications for other branches
 
 jobs:
   notify_slack:
