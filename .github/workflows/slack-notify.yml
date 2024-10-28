@@ -3,7 +3,7 @@ name: Slack Notification on Commit
 on:
   push:
     branches:
-      - master  # Adjust if you want notifications for other branches
+      - master  # Modify this as needed
 
 jobs:
   notify_slack:
@@ -11,9 +11,7 @@ jobs:
 
     steps:
       - name: Send Slack Notification
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         run: |
           curl -X POST -H 'Content-type: application/json' \
           --data "{\"text\":\"New commit in the repository! Commit message: '${{ github.event.head_commit.message }}' by '${{ github.event.head_commit.author.name }}'.\"}" \
-          $SLACK_WEBHOOK_URL
+          https://hooks.slack.com/services/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
