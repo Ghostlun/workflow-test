@@ -3,7 +3,7 @@ name: Slack Notification on Commit
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   notify_slack:
